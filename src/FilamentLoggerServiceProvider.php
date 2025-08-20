@@ -1,6 +1,6 @@
 <?php
 
-namespace Z3d0X\FilamentLogger;
+namespace Jacobtims\FilamentLogger;
 
 use Filament\Facades\Filament;
 use Filament\Panel;
@@ -19,7 +19,7 @@ class FilamentLoggerServiceProvider extends PackageServiceProvider
     protected function getResources(): array
     {
         return [
-            config('filament-logger.activity_resource')
+            config('filament-logger.activity_resource'),
         ];
     }
 
@@ -31,11 +31,10 @@ class FilamentLoggerServiceProvider extends PackageServiceProvider
             ->hasInstallCommand(function (InstallCommand $installCommand) {
                 $installCommand
                     ->publishConfigFile()
-                    ->askToStarRepoOnGitHub('z3d0x/filament-logger')
                     ->startWith(function (InstallCommand $installCommand) {
                         $installCommand->call('vendor:publish', [
                             '--provider' => "Spatie\Activitylog\ActivitylogServiceProvider",
-                            '--tag' => "activitylog-migrations"
+                            '--tag' => 'activitylog-migrations',
                         ]);
                     });
             });

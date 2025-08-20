@@ -28,8 +28,9 @@ Note: By default this package will log Filament Resource Events, Access(Login) E
 
 | Plugin Version | Filament Version |
 |----------------|------------------|
-| < 0.5.x        | ^2.11            |
-| >= 0.6.0       | 3.x              |
+| <= 0.5.x       | ^2.11            |
+| 0.6.x - 0.8.x  | 3.x              |
+| >= 1.0         | 4.x              |
 
 This package uses [spatie/laravel-activitylog](https://spatie.be/docs/laravel-activitylog), instructions for its setup can be found [here](https://spatie.be/docs/laravel-activitylog/v4/installation-and-setup)
 
@@ -45,16 +46,19 @@ php artisan filament-logger:install
 ```
 This will publish the config & migrations from `spatie/laravel-activitylog`
 
-For Filament v3, you need to register a resource in PanelProvider
+Register the plugin in your PanelProvider:
 ```php
+use Jacobtims\FilamentLogger\FilamentLoggerPlugin;
+
 public function panel(Panel $panel): Panel
 {
     return $panel
-        ->resources([
-            config('filament-logger.activity_resource')
+        ->plugins([
+            FilamentLoggerPlugin::make(),
         ]);
 }
 ```
+
 ## Authorization
 To enforce policies on `ActivityResource`, after generating a policy, you would need to register `Spatie\Activitylog\Models\Activity` to use that policy in the AuthServiceProvider.
 ```php

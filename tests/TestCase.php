@@ -1,12 +1,12 @@
 <?php
 
-namespace Z3d0X\FilamentLogger\Tests;
+namespace Jacobtims\FilamentLogger\Tests;
 
 use Filament\FilamentServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Jacobtims\FilamentLogger\FilamentLoggerServiceProvider;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Z3d0X\FilamentLogger\FilamentLoggerServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -15,7 +15,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Z3d0X\\FilamentLogger\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'Jacobtims\\FilamentLogger\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 

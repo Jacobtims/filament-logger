@@ -1,6 +1,6 @@
 <?php
 
-namespace Z3d0X\FilamentLogger\Loggers;
+namespace Jacobtims\FilamentLogger\Loggers;
 
 class ResourceLogger extends AbstractModelLogger
 {
