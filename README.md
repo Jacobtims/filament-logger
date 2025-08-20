@@ -4,8 +4,8 @@
 
 # Activity logger for filament
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/jacobtims/filament-logger.svg?style=for-the-badge)](https://packagist.org/packages/z3d0x/filament-logger)
-[![Total Downloads](https://img.shields.io/packagist/dt/jacobtims/filament-logger.svg?style=for-the-badge)](https://packagist.org/packages/z3d0x/filament-logger)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/jacobtims/filament-logger.svg?style=for-the-badge)](https://packagist.org/packages/jacobtims/filament-logger)
+[![Total Downloads](https://img.shields.io/packagist/dt/jacobtims/filament-logger.svg?style=for-the-badge)](https://packagist.org/packages/jacobtims/filament-logger)
 
 <p align="center" class="filament-hidden">
   <img alt="logger banner" src="https://raw.githubusercontent.com/jacobtims/filament-logger/main/art/banner.jpeg" />
