@@ -28,8 +28,8 @@ Note: By default this package will log Filament Resource Events, Access(Login) E
 
 | Plugin Version | Filament Version |
 |----------------|------------------|
-| < 0.5.x        | ^2.11            |
-| 0.6.x          | 3.x              |
+| <= 0.5.x       | ^2.11            |
+| 0.6.x - 0.8.x  | 3.x              |
 | >= 1.0         | 4.x              |
 
 This package uses [spatie/laravel-activitylog](https://spatie.be/docs/laravel-activitylog), instructions for its setup can be found [here](https://spatie.be/docs/laravel-activitylog/v4/installation-and-setup)
