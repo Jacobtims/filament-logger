@@ -1,6 +1,6 @@
 <?php
 
-namespace Z3d0X\FilamentLogger\Resources\ActivityResource\Schemas;
+namespace Jacobtims\FilamentLogger\Resources\ActivityResource\Schemas;
 
 use Filament\Infolists\Components\KeyValueEntry;
 use Filament\Infolists\Components\TextEntry;

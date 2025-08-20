@@ -1,6 +1,6 @@
 <?php
 
-namespace Z3d0X\FilamentLogger\Resources\ActivityResource\Tables;
+namespace Jacobtims\FilamentLogger\Resources\ActivityResource\Tables;
 
 use Filament\Facades\Filament;
 use Filament\Forms\Components\DatePicker;

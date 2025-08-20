@@ -1,17 +1,17 @@
 <?php
 
-namespace Z3d0X\FilamentLogger\Resources;
+namespace Jacobtims\FilamentLogger\Resources;
 
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
+use Jacobtims\FilamentLogger\Resources\ActivityResource\Pages\ListActivities;
+use Jacobtims\FilamentLogger\Resources\ActivityResource\Pages\ViewActivity;
+use Jacobtims\FilamentLogger\Resources\ActivityResource\Schemas\ActivityInfolist;
+use Jacobtims\FilamentLogger\Resources\ActivityResource\Tables\ActivitiesTable;
 use Spatie\Activitylog\ActivitylogServiceProvider;
-use Z3d0X\FilamentLogger\Resources\ActivityResource\Pages\ListActivities;
-use Z3d0X\FilamentLogger\Resources\ActivityResource\Pages\ViewActivity;
-use Z3d0X\FilamentLogger\Resources\ActivityResource\Schemas\ActivityInfolist;
-use Z3d0X\FilamentLogger\Resources\ActivityResource\Tables\ActivitiesTable;
 
 class ActivityResource extends Resource
 {

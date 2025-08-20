@@ -1,10 +1,10 @@
 <?php
 
-namespace Z3d0X\FilamentLogger;
+namespace Jacobtims\FilamentLogger;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
-use Z3d0X\FilamentLogger\Resources\ActivityResource;
+use Jacobtims\FilamentLogger\Resources\ActivityResource;
 
 class FilamentLoggerPlugin implements Plugin
 {

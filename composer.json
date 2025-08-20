@@ -43,13 +43,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Z3d0X\\FilamentLogger\\": "src",
-            "Z3d0X\\FilamentLogger\\Database\\Factories\\": "database/factories"
+            "Jacobtims\\FilamentLogger\\": "src",
+            "Jacobtims\\FilamentLogger\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Z3d0X\\FilamentLogger\\Tests\\": "tests"
+            "Jacobtims\\FilamentLogger\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -67,10 +67,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Z3d0X\\FilamentLogger\\FilamentLoggerServiceProvider"
+                "Jacobtims\\FilamentLogger\\FilamentLoggerServiceProvider"
             ],
             "aliases": {
-                "FilamentLogger": "Z3d0X\\FilamentLogger\\Facades\\FilamentLogger"
+                "FilamentLogger": "Jacobtims\\FilamentLogger\\Facades\\FilamentLogger"
             }
         }
     },

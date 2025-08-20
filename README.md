@@ -48,7 +48,7 @@ This will publish the config & migrations from `spatie/laravel-activitylog`
 
 Register the plugin in your PanelProvider:
 ```php
-use Z3d0X\FilamentLogger\FilamentLoggerPlugin;
+use Jacobtims\FilamentLogger\FilamentLoggerPlugin;
 
 public function panel(Panel $panel): Panel
 {
