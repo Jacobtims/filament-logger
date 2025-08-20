@@ -19,7 +19,7 @@ class FilamentLoggerServiceProvider extends PackageServiceProvider
     protected function getResources(): array
     {
         return [
-            config('filament-logger.activity_resource')
+            config('filament-logger.activity_resource'),
         ];
     }
 
@@ -35,7 +35,7 @@ class FilamentLoggerServiceProvider extends PackageServiceProvider
                     ->startWith(function (InstallCommand $installCommand) {
                         $installCommand->call('vendor:publish', [
                             '--provider' => "Spatie\Activitylog\ActivitylogServiceProvider",
-                            '--tag' => "activitylog-migrations"
+                            '--tag' => 'activitylog-migrations',
                         ]);
                     });
             });

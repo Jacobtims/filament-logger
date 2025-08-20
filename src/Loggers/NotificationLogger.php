@@ -2,20 +2,17 @@
 
 namespace Z3d0X\FilamentLogger\Loggers;
 
-use Illuminate\Notifications\AnonymousNotifiable;
 use Illuminate\Notifications\Events\NotificationFailed;
 use Illuminate\Notifications\Events\NotificationSent;
-use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
-use Spatie\Activitylog\ActivityLogStatus;
 use Spatie\Activitylog\ActivityLogger;
+use Spatie\Activitylog\ActivityLogStatus;
 
 class NotificationLogger
 {
     /**
      * Log the notification
      *
-     * @param  NotificationSent|NotificationFailed  $event
      * @return void
      */
     public function handle(NotificationSent|NotificationFailed $event)
@@ -27,11 +24,11 @@ class NotificationLogger
         } else {
             $description = $notification.' Notification failed';
         }
-        
+
         $receipent = $this->getRecipient($event->notifiable, $event->channel);
-        
-        if($receipent) {
-             $description .= ' to '.$receipent;
+
+        if ($receipent) {
+            $description .= ' to '.$receipent;
         }
 
         app(ActivityLogger::class)
@@ -45,6 +42,7 @@ class NotificationLogger
     public function getRecipient(mixed $notifiable, string $channel): ?string
     {
         $notificationRoute = $notifiable->routeNotificationFor($channel);
+
         return is_string($notificationRoute) ? $notificationRoute : null;
     }
 }

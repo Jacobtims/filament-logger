@@ -12,7 +12,6 @@ class AccessLogger
     /**
      * Log user login
      *
-     * @param  Login  $event
      * @return void
      */
     public function handle(Login $event)

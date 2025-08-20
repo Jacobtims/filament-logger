@@ -12,11 +12,11 @@ use Spatie\Activitylog\ActivityLogStatus;
 
 abstract class AbstractModelLogger
 {
-    protected abstract function getLogName(): string;
+    abstract protected function getLogName(): string;
 
     protected function getUserName(?Authenticatable $user): string
     {
-        if(blank($user) || $user instanceof GenericUser) {
+        if (blank($user) || $user instanceof GenericUser) {
             return 'Anonymous';
         }
 
@@ -28,8 +28,7 @@ abstract class AbstractModelLogger
         return Str::of(class_basename($model))->headline();
     }
 
-
-    protected function activityLogger(string $logName = null): ActivityLogger
+    protected function activityLogger(?string $logName = null): ActivityLogger
     {
         $defaultLogName = $this->getLogName();
 
@@ -59,7 +58,7 @@ abstract class AbstractModelLogger
 
     protected function log(Model $model, string $event, ?string $description = null, mixed $attributes = null)
     {
-        if(is_null($description)) {
+        if (is_null($description)) {
             $description = $this->getModelName($model).' '.$event;
         }
 
@@ -76,19 +75,19 @@ abstract class AbstractModelLogger
 
     public function created(Model $model)
     {
-        $this->log($model, 'Created', attributes:$model->getAttributes());
+        $this->log($model, 'Created', attributes: $model->getAttributes());
     }
 
     public function updated(Model $model)
     {
         $changes = $model->getChanges();
 
-        //Ignore the changes to remember_token
+        // Ignore the changes to remember_token
         if (count($changes) === 1 && array_key_exists('remember_token', $changes)) {
             return;
         }
 
-        $this->log($model, 'Updated', attributes:$changes);
+        $this->log($model, 'Updated', attributes: $changes);
     }
 
     public function deleted(Model $model)
