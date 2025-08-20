@@ -12,10 +12,8 @@ class NotificationLogger
 {
     /**
      * Log the notification
-     *
-     * @return void
      */
-    public function handle(NotificationSent|NotificationFailed $event)
+    public function handle(NotificationSent|NotificationFailed $event): void
     {
         $notification = class_basename($event->notification);
 
@@ -25,10 +23,10 @@ class NotificationLogger
             $description = $notification.' Notification failed';
         }
 
-        $receipent = $this->getRecipient($event->notifiable, $event->channel);
+        $recipient = $this->getRecipient($event->notifiable, $event->channel);
 
-        if ($receipent) {
-            $description .= ' to '.$receipent;
+        if ($recipient) {
+            $description .= ' to '.$recipient;
         }
 
         app(ActivityLogger::class)

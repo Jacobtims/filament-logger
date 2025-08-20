@@ -7,6 +7,7 @@ use Illuminate\Auth\GenericUser;
 use Illuminate\Contracts\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
+use Illuminate\Support\Stringable;
 use Spatie\Activitylog\ActivityLogger;
 use Spatie\Activitylog\ActivityLogStatus;
 
@@ -23,7 +24,7 @@ abstract class AbstractModelLogger
         return Filament::getUserName($user);
     }
 
-    protected function getModelName(Model $model)
+    protected function getModelName(Model $model): Stringable
     {
         return Str::of(class_basename($model))->headline();
     }
@@ -56,7 +57,7 @@ abstract class AbstractModelLogger
         return $values;
     }
 
-    protected function log(Model $model, string $event, ?string $description = null, mixed $attributes = null)
+    protected function log(Model $model, string $event, ?string $description = null, mixed $attributes = null): void
     {
         if (is_null($description)) {
             $description = $this->getModelName($model).' '.$event;
@@ -73,12 +74,12 @@ abstract class AbstractModelLogger
             ->log($description);
     }
 
-    public function created(Model $model)
+    public function created(Model $model): void
     {
         $this->log($model, 'Created', attributes: $model->getAttributes());
     }
 
-    public function updated(Model $model)
+    public function updated(Model $model): void
     {
         $changes = $model->getChanges();
 
@@ -90,7 +91,7 @@ abstract class AbstractModelLogger
         $this->log($model, 'Updated', attributes: $changes);
     }
 
-    public function deleted(Model $model)
+    public function deleted(Model $model): void
     {
         $this->log($model, 'Deleted');
     }

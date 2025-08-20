@@ -22,9 +22,9 @@ class ActivitiesTable
         return $table
             ->columns([
                 TextColumn::make('log_name')
+                    ->label(__('filament-logger::filament-logger.resource.label.type'))
                     ->badge()
                     ->colors(static::getLogNameColors())
-                    ->label(__('filament-logger::filament-logger.resource.label.type'))
                     ->formatStateUsing(fn ($state) => ucwords($state))
                     ->sortable(),
 
