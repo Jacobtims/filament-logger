@@ -2,6 +2,25 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## 1.0.0 - 2025-08-20
+
+### What's Changed
+
+* Update to Filament 4 by @Jacobtims in https://github.com/Jacobtims/filament-logger/pull/1
+
+### New Contributors
+
+* @Jacobtims made their first contribution in https://github.com/Jacobtims/filament-logger/pull/1
+
+### Breaking Changes
+
+* Requires Filament v4.x
+* Package name changed from `z3d0x/filament-logger` to `jacobtims/filament-logger`
+* Namespace changed from `Z3d0X` to `Jacobtims`
+* Register plugin using `FilamentLoggerPlugin`. See [README.md](https://github.com/Z3d0X/filament-logger?tab=readme-ov-file#installation).
+
+**Full Changelog**: https://github.com/Jacobtims/filament-logger/compare/v0.8.0...v1.0.0
+
 ## v0.8.0 - 2025-03-04
 
 ### What's Changed
