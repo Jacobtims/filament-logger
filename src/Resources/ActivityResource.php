@@ -4,6 +4,7 @@ namespace Jacobtims\FilamentLogger\Resources;
 
 use BackedEnum;
 use Filament\Resources\Resource;
+use UnitEnum;
 use Filament\Schemas\Schema;
 use Filament\Support\Icons\Heroicon;
 use Filament\Tables\Table;
@@ -59,9 +60,15 @@ class ActivityResource extends Resource
         return __('filament-logger::filament-logger.resource.label.logs');
     }
 
-    public static function getNavigationGroup(): ?string
+    public static function getNavigationGroup(): string | UnitEnum | null
     {
-        return __(config('filament-logger.resources.navigation_group', 'Settings'));
+        $group = config('filament-logger.resources.navigation_group', 'Settings');
+
+        if ($group instanceof UnitEnum) {
+            return $group;
+        }
+
+        return __($group);
     }
 
     public static function getNavigationLabel(): string
