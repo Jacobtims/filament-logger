@@ -2,6 +2,20 @@
 
 All notable changes to `filament-logger` will be documented in this file.
 
+## v1.2.0 - 2026-03-25
+
+### What's Changed
+
+* Support UnitEnum for navigation group by @jyrkidn in https://github.com/Jacobtims/filament-logger/pull/5
+* Added support for Laravel 13 by @ken-tam in https://github.com/Jacobtims/filament-logger/pull/6
+
+### New Contributors
+
+* @jyrkidn made their first contribution in https://github.com/Jacobtims/filament-logger/pull/5
+* @ken-tam made their first contribution in https://github.com/Jacobtims/filament-logger/pull/6
+
+**Full Changelog**: https://github.com/Jacobtims/filament-logger/compare/v1.1.0...v1.2.0
+
 ## v1.1.0 - 2026-01-20
 
 ### What's Changed
