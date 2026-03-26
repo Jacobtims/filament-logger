@@ -80,16 +80,14 @@ class ActivityInfolist
                                 ->columnSpanFull();
                         }
 
-                        if ($old = $record->properties->get('old')) {
-                            $schema[] = KeyValueEntry::make('old')
-                                ->label(__('filament-logger::filament-logger.resource.label.old'))
-                                ->formatStateUsing(fn () => $old);
+                        if ($record->properties->get('old')) {
+                            $schema[] = KeyValueEntry::make('properties.old')
+                                ->label(__('filament-logger::filament-logger.resource.label.old'));
                         }
 
-                        if ($attributes = $record->properties->get('attributes')) {
-                            $schema[] = KeyValueEntry::make('attributes')
-                                ->label(__('filament-logger::filament-logger.resource.label.new'))
-                                ->formatStateUsing(fn () => $attributes);
+                        if ($record->properties->get('attributes')) {
+                            $schema[] = KeyValueEntry::make('properties.attributes')
+                                ->label(__('filament-logger::filament-logger.resource.label.new'));
                         }
 
                         return $schema;
