@@ -68,9 +68,9 @@ class ActivitiesTable
                     ->label(__('filament-logger::filament-logger.resource.label.subject_type'))
                     ->options(static::getSubjectTypeList()),
 
-                Filter::make('properties->old')
+                Filter::make('properties_old')
                     ->indicateUsing(function (array $data): ?string {
-                        if (! $data['old']) {
+                        if (blank($data['old'] ?? null)) {
                             return null;
                         }
 
@@ -82,16 +82,16 @@ class ActivitiesTable
                             ->hint(__('filament-logger::filament-logger.resource.label.properties_hint')),
                     ])
                     ->query(function (Builder $query, array $data): Builder {
-                        if (! $data['old']) {
+                        if (blank($data['old'] ?? null)) {
                             return $query;
                         }
 
                         return $query->where('properties->old', 'like', "%{$data['old']}%");
                     }),
 
-                Filter::make('properties->attributes')
+                Filter::make('properties_new')
                     ->indicateUsing(function (array $data): ?string {
-                        if (! $data['new']) {
+                        if (blank($data['new'] ?? null)) {
                             return null;
                         }
 
@@ -103,7 +103,7 @@ class ActivitiesTable
                             ->hint(__('filament-logger::filament-logger.resource.label.properties_hint')),
                     ])
                     ->query(function (Builder $query, array $data): Builder {
-                        if (! $data['new']) {
+                        if (blank($data['new'] ?? null)) {
                             return $query;
                         }
 
