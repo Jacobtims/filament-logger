@@ -70,11 +70,11 @@ class ActivitiesTable
 
                 Filter::make('properties->old')
                     ->indicateUsing(function (array $data): ?string {
-                        if (! $data['old']) {
-                            return null;
-                        }
+                        $old = $data['old'] ?? null;
 
-                        return __('filament-logger::filament-logger.resource.label.old_attributes').$data['old'];
+                        return $old
+                            ? __('filament-logger::filament-logger.resource.label.old_attributes').$old
+                            : null;
                     })
                     ->schema([
                         TextInput::make('old')
@@ -82,20 +82,20 @@ class ActivitiesTable
                             ->hint(__('filament-logger::filament-logger.resource.label.properties_hint')),
                     ])
                     ->query(function (Builder $query, array $data): Builder {
-                        if (! $data['old']) {
-                            return $query;
-                        }
+                        $old = $data['old'] ?? null;
 
-                        return $query->where('properties->old', 'like', "%{$data['old']}%");
+                        return $old
+                            ? $query->where('properties->old', 'like', "%{$old}%")
+                            : $query;
                     }),
 
                 Filter::make('properties->attributes')
                     ->indicateUsing(function (array $data): ?string {
-                        if (! $data['new']) {
-                            return null;
-                        }
+                        $new = $data['new'] ?? null;
 
-                        return __('filament-logger::filament-logger.resource.label.new_attributes').$data['new'];
+                        return $new
+                            ? __('filament-logger::filament-logger.resource.label.new_attributes').$new
+                            : null;
                     })
                     ->schema([
                         TextInput::make('new')
@@ -103,11 +103,11 @@ class ActivitiesTable
                             ->hint(__('filament-logger::filament-logger.resource.label.properties_hint')),
                     ])
                     ->query(function (Builder $query, array $data): Builder {
-                        if (! $data['new']) {
-                            return $query;
-                        }
+                        $new = $data['new'] ?? null;
 
-                        return $query->where('properties->attributes', 'like', "%{$data['new']}%");
+                        return $new
+                            ? $query->where('properties->attributes', 'like', "%{$new}%")
+                            : $query;
                     }),
 
                 Filter::make('created_at')
@@ -119,7 +119,7 @@ class ActivitiesTable
                     ->query(function (Builder $query, array $data): Builder {
                         return $query
                             ->when(
-                                $data['logged_at'],
+                                $data['logged_at'] ?? null,
                                 fn (Builder $query, $date): Builder => $query->whereDate('created_at', $date),
                             );
                     }),
